@@ -1,39 +1,39 @@
 .navbar-nav > li {
-	padding: 0;
+  padding: 0;
 }
 
 .navbar > .container .navbar-brand, .navbar > .container-fluid .navbar-brand {
-	max-width: 200px;
+  max-width: 200px;
 
 }
 
 .navbar-brand img {
-	width: 100%;
+  width: 100%;
 }
 
 .leaflet-top {
-	top: 100px;
+  top: 100px;
 
 }
 
 .padding-small {
-	padding-top: 40px;
-	padding-bottom: 40px;	
+  padding-top: 40px;
+  padding-bottom: 40px; 
 }
 
 /* Search styles */
 .discovery-search .form-item {
-	display: inline-block;
+  display: inline-block;
 }
 
 .discovery-search label {
-	display: none;
+  display: none;
 }
 
 .discovery-search .form-text,
 
 .form-submit{
-	padding: 13px;
+  padding: 13px;
   border: none;
   transition: all .3s;
     -ms-transition: all .3s;
@@ -49,37 +49,37 @@
 
 
 .discovery-search .form-text{
-	width: 800px;
+  width: 800px;
 }
 
 .discovery-search .form-submit{
-	width: 100px;
-	margin-left: -99px;
+  width: 100px;
+  margin-left: -99px;
 }
 
 .owl-stage .owl-item {
-	float: left;
+  float: left;
 }
 
 .owl-nav {
-	position: relative;
+  position: relative;
 }
 
 .owl-nav .owl-prev,.owl-nav .owl-next {
-	position: absolute;
+  position: absolute;
 }
 
 .owl-prev {
-	left: 0;
+  left: 0;
 }
 
 
 .owl-next {
-	right: 0;
+  right: 0;
 }
 
 .owl-dots {
-	display: none;
+  display: none;
 }
 
   /* Footer rules */
@@ -91,8 +91,8 @@
 
 
   .logo-wrap {
-	position: relative;
-	display: inline-block;
+  position: relative;
+  display: inline-block;
   }
 
   .logo-wrap .version {
@@ -108,27 +108,27 @@
   }
 
   .footer-white .logo-wrap .version {
-	color: #fff;
-	background: #000;
+  color: #fff;
+  background: #000;
   }
 
   .footer-main-logo {
-  	width: 200px;
+    width: 200px;
   }
 
   .powered-txt {
-  	font-size: 21px;
+    font-size: 21px;
     color: #fff;
     padding: 0 0 0 30px;
     line-height: 61px;
   }
-	
+  
   .footer-white .powered-txt {
-	color: #000;
-  }	
+  color: #000;
+  } 
 
   .footer-sec-logo {
-  	width: 110px;
+    width: 110px;
   }
 
 #page_footer {
@@ -179,6 +179,11 @@ img {
 .owl-nav > div {
   cursor: pointer;
   padding: 5px;
+}
+
+.form-item .description {
+  font-size: 13px;
+  padding: 2px 0;
 }
 
 /* Navigation */
@@ -320,7 +325,7 @@ p {
 }
 
 /* Full page content */
-.node .field {
+.page-node .node .field {
   padding: 15px 0;
 }
 
@@ -353,3 +358,4 @@ p {
   display: inline-block;
   font-weight: bold;
 }
+
