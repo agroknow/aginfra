@@ -8,9 +8,12 @@ libraries_load('leaflet');
 drupal_add_library('leaflet_markercluster', 'leaflet_markercluster');
 
 drupal_add_library('ak_cp','ak_cp',FALSE);
-$tile_string = 'var customTile = L.tileLayer("http://{s}.tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png", {
-                attribution: \'&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>\',
-                maxZoom: 18,
+$tile_string = 'var customTile = L.tileLayer("http://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.{ext}", {
+                attribution: \'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>\',
+                subdomains: "abcd",
+                minZoom: 1,
+                maxZoom: 16,
+                ext: "png"
             });';
 
 $colors_string = 'var typeColors = {
@@ -28,9 +31,9 @@ drupal_add_js(drupal_get_path('module', 'ak_cp') .'/js/ak_cp.js', 'file');
 drupal_add_css(drupal_get_path('module', 'ak_cp') .'/css/ak_cp.css', 'file');
 
 if(!empty($_REQUEST["style"])){
-  $style = $_REQUEST["style"];
+	$style = $_REQUEST["style"];
 } else {
-  $style = theme_get_setting('style', 'agage'); 
+	$style = theme_get_setting('style', 'agage'); 
 }
 if(empty($style)) $style = 'style1';
 
@@ -49,15 +52,15 @@ if (FALSE) {
                         <span></span>
                     </button>
                     <a class="navbar-brand overlay-header-logo" href="<?php print $base_url ?>">
-                      <img src="<?php print $base_url.'/'.path_to_theme();?>/logo.jpg" alt="logo" role="banner">
-                    </a> 
-            <a class="navbar-brand normal-header-logo" href="<?php print $base_url ?>">
-                      <img src="<?php print $base_url.'/'.path_to_theme();?>/logo-black.jpg" alt="logo" role="banner">
-                    </a>
+                    	<img src="<?php print $base_url.'/'.path_to_theme();?>/logo.jpg" alt="logo" role="banner">
+                   	</a> 
+		  			<a class="navbar-brand normal-header-logo" href="<?php print $base_url ?>">
+                    	<img src="<?php print $base_url.'/'.path_to_theme();?>/logo-black.jpg" alt="logo" role="banner">
+                   	</a>
                 </div>
                 <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
                     <ul class="nav navbar-nav">
-                      <!--Content menu - update.js-->
+                    	<!--Content menu - update.js-->
                     </ul>
                 </div>                
             </div>
@@ -77,17 +80,17 @@ if (FALSE) {
                         <span></span>
                     </button>
                     <a class="navbar-brand overlay-header-logo" href="<?php print $base_url ?>"> 
-                        <img src="<?php print $base_url.'/'.path_to_theme();?>/logo.jpg" alt="logo" role="banner">
+                        <img src="<?php print $base_url.'/'.path_to_theme();?>/logo.png" alt="logo" role="banner">
                     </a> 
                     <a class="navbar-brand normal-header-logo" href="<?php print $base_url ?>"> 
-                        <img src="<?php print $base_url.'/'.path_to_theme();?>/logo-black.jpg" alt="logo" role="banner">
+                        <img src="<?php print $base_url.'/'.path_to_theme();?>/logo_neg.png" alt="logo" role="banner">
                     </a>
                 </div>
                 
                 <div class="collapse navbar-collapse navbar-right" id="navigation-menu">
-                  <!-- MENU -->
+                	<!-- MENU -->
                     <?php print render($page['main_menu']) ?>
-                      <!--Content menu - update.js-->
+                    	<!--Content menu - update.js-->
                     </ul>
                 </div>
                 
@@ -104,12 +107,12 @@ if (FALSE) {
         </div>
         <nav id="nav-side">
             <div class="logo">
-                <a href="<?php print $base_url ?>" class="move">
-                  <img src="<?php print $base_url.'/'.path_to_theme();?>/logo-black.jpg" alt="">
-                </a> 
+               	<a href="<?php print $base_url ?>" class="move">
+                	<img src="<?php print $base_url.'/'.path_to_theme();?>/logo-black.jpg" alt="">
+               	</a> 
             </div>
             <ul id="main-menu" class="nav">
-              <!--Content menu - update.js-->
+            	<!--Content menu - update.js-->
             </ul>
         </nav>
     </aside>
@@ -127,7 +130,7 @@ if (FALSE) {
             </button>
             <div class="clearfix"></div>
             <ul class="collapse navbar-collapse">
-              <!--Content menu - update.js-->
+            	<!--Content menu - update.js-->
             </ul>
         </div>
     </nav>
@@ -137,12 +140,10 @@ if (FALSE) {
 
 <?php
 if($style == 'style4') {
-  $body_class = 'pageWrapper';  
+	$body_class = 'pageWrapper';	
 } else {
-  $body_class = '';
+	$body_class = '';
 }
-
-$body_class = 'map-page';
 ?>
 <div id="pageWrapper" class="map-page clearfix en-creative <?php print $body_class; ?>">
     <div class="contentWrapper">
@@ -150,7 +151,7 @@ $body_class = 'map-page';
           <div class="tools-container">
           <!-- ctools-modal-openharvest-modal-style -->
               <a id="add-resource" class="ctools-use-modal add-resource ctools-modal-openharvest-modal-style-fixed" href="modal_forms/nojs/webform/10171"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
-              <a id="discover" class="discover" href="<?php echo url('discover-black') ?>"><i class="fa fa-search" aria-hidden="true"></i></a>
+              <a id="discover" class="discover" href="<?php echo url('discover') ?>"><i class="fa fa-search" aria-hidden="true"></i></a>
               <a id="show-dp" class="show-dp toggleLayer" href="#" style="display:none"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
               <a id="show-orgs" class="show-orgs toggleLayer" href="#"><i class="fa fa-building" aria-hidden="true"></i></a>
           </div>
@@ -161,4 +162,4 @@ $body_class = 'map-page';
 <?php endif; ?>
     </div>
 </div>
-<?php require_once(drupal_get_path('theme','agage').'/tpl/footer-map.tpl.php'); ?>
+<?php require_once(drupal_get_path('theme','agage').'/tpl/footer.tpl.php'); ?>
