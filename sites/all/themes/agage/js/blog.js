@@ -40,7 +40,7 @@
             gridAdjustment: 'responsive',
             mediaQueries: [{
                 width: 1100,
-                cols: 3
+                cols: 2
             }, {
                 width: 800,
                 cols: 2
