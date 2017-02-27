@@ -43,26 +43,26 @@ $params = drupal_get_query_parameters();
     <div class="row">
     <div class="blog-body marT12 clearfix">
     <div class="a-blog-grid">
-      <div class="col-lg-3">
-        <?php print theme('image_style', array('style_name' => '300x140crop', 'path' => 'public://content_types/organization.jpg')); ?>
+      <div class="col-lg-3 pad10">
+        <?php print theme('image_style', array('style_name' => '400x300crop', 'path' => 'public://content_types/organization.png')); ?>
         <?php $path = url('discover', array('query' => array('f' => array('type:organization')))); ?>
         <a href="<?php echo $path ?>" target="_blank" class="cbp-l-grid-blog-title">Organizations</a>
         <?php print views_embed_view('search_page_blocks_content', 'block_3', 'organization'); ?>
       </div>
-      <div class="col-lg-3">
-        <?php print theme('image_style', array('style_name' => '300x140crop', 'path' => 'public://content_types/initiative.jpg')); ?>
+      <div class="col-lg-3 pad10">
+        <?php print theme('image_style', array('style_name' => '400x300crop', 'path' => 'public://content_types/initiative.jpg')); ?>
         <?php $path = url('discover', array('query' => array('f' => array('type:initiative')))); ?>
         <a href="<?php echo $path ?>" target="_blank" class="cbp-l-grid-blog-title">Initiatives</a>
         <?php print views_embed_view('search_page_blocks_content', 'block_3', 'initiative'); ?>
       </div>
-      <div class="col-lg-3">
-        <?php print theme('image_style', array('style_name' => '300x140crop', 'path' => 'public://content_types/data_point.jpg')); ?>
+      <div class="col-lg-3 pad10">
+        <?php print theme('image_style', array('style_name' => '400x300crop', 'path' => 'public://content_types/data_point.jpg')); ?>
         <?php $path = url('discover', array('query' => array('f' => array('type:data_point')))); ?>
         <a href="<?php echo $path ?>" target="_blank" class="cbp-l-grid-blog-title">Data points</a>
         <?php print views_embed_view('search_page_blocks_content', 'block_3', 'data_point'); ?>
       </div>
-      <div class="col-lg-3">
-        <?php print theme('image_style', array('style_name' => '300x140crop', 'path' => 'public://content_types/facility.jpg')); ?>
+      <div class="col-lg-3 pad10">
+        <?php print theme('image_style', array('style_name' => '400x300crop', 'path' => 'public://content_types/facility.jpg')); ?>
         <?php $path = url('discover', array('query' => array('f' => array('type:facility')))); ?>
         <a href="<?php echo $path ?>" target="_blank" class="cbp-l-grid-blog-title">Facilities</a>
         <?php print views_embed_view('search_page_blocks_content', 'block_3', 'facility'); ?>
