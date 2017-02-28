@@ -10,7 +10,7 @@
             var $map = $('#map');
             var networkColors = {
                 'Agris':'#8342f4',
-                'agINFRA':'#8342f4',
+                'agINFRA':'#B73398',
                 'GLN':'#42eef4'
             };
             //moved to page--front.tpl and page--map.tpl
