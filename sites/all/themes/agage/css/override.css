@@ -258,19 +258,19 @@ img {
   position: static;
 }
 
-.search-results .node-teaser h3,
-.search-results .node-teaser h4 {
+.n-listing h3,
+.n-listing h4 {
   font-weight: normal;
   margin-bottom: 10px;
 }
 
-.search-results .node-teaser {
+.n-listing {
   margin-bottom: 20px;
   padding: 10px 10px 20px 10px;
   position: relative;
 }
 
-.search-results .node-teaser .read-more {
+.n-listing .read-more {
   position: absolute;
   right: 80px;
   bottom: 10px;
@@ -298,6 +298,27 @@ img {
   font-size: 30px;
   padding-left: 8px;
   vertical-align: bottom;
+}
+
+section#blog-featured {
+  background: none;
+}
+
+#blog-featured .views-column {
+  padding-left: 2px;
+  padding-right: 2px;
+}
+
+.blog_usernames_blog {
+  display: none;
+}
+
+.node-list-margin {
+  margin-bottom: 20px;
+}
+
+.cbp-l-caption-desc a {
+  color: inherit;
 }
 
 /* FACETS */

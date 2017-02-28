@@ -84,22 +84,13 @@
 //Data point Fields
 /*
 body
-field_logo
-field_website
-field_address
-field_geolocation
-field_belongs_to
-field_is_collection_of
-field_photo
-field_tags
-field_data_type
-field_date_approved
-field_theme
-field_highlights
-field_external_id
+field_blog_images
+field_blog_type
+field_tags  
+field_featured
 */
 ?>
-<div id="node-<?php print $node->nid; ?>" class="n-listing <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
+<div id="node-<?php print $node->nid; ?>" class="n-listing node-list-margin <?php print $classes; ?> clearfix"<?php print $attributes; ?>>
 
   <?php print $user_picture; ?>
 
@@ -117,7 +108,7 @@ field_external_id
       //print render($content);
     ?>
     <div class="col-md-4 static">
-      <?php print render($content['field_logo']) ?>
+      <?php print render($content['field_blog_images'][0]) ?>
     </div>
     <div class="col-md-8 static">
     <?php print render($title_prefix); ?>
@@ -128,9 +119,9 @@ field_external_id
     <?php print render($title_suffix); ?>
 
       <?php print render($content['body']) ?>
-      <?php 
-            if(isset($content['field_address'])) { print '<div class="address-wrap"><i class="pull-left fa fa-map-marker" aria-hidden="true"></i>' . render($content['field_address']) . '</div>';} 
-      ?>
+      <?php print render($content['field_tags']) ?>
+      <?php print render($content['field_blog_type']) ?>
+      
       <div class="read-more"><?php print render($content['links']); ?></div>
     </div>
   </div>
