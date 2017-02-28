@@ -10,6 +10,7 @@
             var $map = $('#map');
             var networkColors = {
                 'Agris':'#8342f4',
+                'agINFRA':'#8342f4',
                 'GLN':'#42eef4'
             };
             //moved to page--front.tpl and page--map.tpl
@@ -70,7 +71,7 @@
             customTile.addTo(map);
             
             // Add a layer control
-            //var layerControl = L.control.layers().addTo(map);
+            var layerControl = L.control.layers().addTo(map);
 
             // Add a legend control
             // var legendControl = L.control.legend({
@@ -87,11 +88,14 @@
 
             // Group data by nid code
             var mapDataPerType = _.groupBy(mapData, function (value) {
-                return (value.type !== 'data_point') ? 'organization' : 'data_point' ;
+                return (value.type === 'initiative' || value.type === 'organization') ? 'organization' : value.type ;
+                //return value.type;
             });
 
             var orgs = L.GeometryUtils.arrayToMap(mapDataPerType.organization, 'nid');
             var dpoints = L.GeometryUtils.arrayToMap(mapDataPerType.data_point, 'nid');
+            var facilities = L.GeometryUtils.arrayToMap(mapDataPerType.facility, 'nid');
+            //var initiatives = L.GeometryUtils.arrayToMap(mapDataPerType.initiative, 'nid');
 
             //console.log(mapDataPerType);
             // Group flight data by nid code
@@ -317,6 +321,8 @@
 
              organizationsLayer = new L.MarkerDataLayer(orgs, markerLayerOptions);
              dataPointsLayer = new L.MarkerDataLayer(dpoints, markerLayerOptions);
+             facilitiesPointsLayer = new L.MarkerDataLayer(facilities, markerLayerOptions);
+             //initiativesPointsLayer = new L.MarkerDataLayer(initiatives, markerLayerOptions);
             
             dataPointMarkers = new L.MarkerClusterGroup({
                 iconCreateFunction: function (cluster) {
@@ -337,9 +343,51 @@
             },
             });
 
+            facilityMarkers = new L.MarkerClusterGroup({
+                iconCreateFunction: function (cluster) {
+                var myClass = ' marker-cluster-';
+                var rad;
+                var count = cluster.getChildCount();
+                if (count < 8) {
+                    myClass += 'small';
+                    rad = 30;
+                } else if (count < 60) {
+                    myClass += 'medium';
+                    rad = 40;
+                } else {
+                    myClass += 'large';
+                    rad = 50;
+                } 
+                return L.divIcon({ html: '<div><span>' + count + '</span></div>', className: 'marker-cluster' + myClass, iconSize: new L.Point(rad, rad)  });
+            },
+            });
+
+            /*initiativeMarkers = new L.MarkerClusterGroup({
+                iconCreateFunction: function (cluster) {
+                var myClass = ' marker-cluster-';
+                var rad;
+                var count = cluster.getChildCount();
+                if (count < 8) {
+                    myClass += 'small';
+                    rad = 30;
+                } else if (count < 60) {
+                    myClass += 'medium';
+                    rad = 40;
+                } else {
+                    myClass += 'large';
+                    rad = 50;
+                } 
+                return L.divIcon({ html: '<div><span>' + count + '</span></div>', className: 'marker-cluster' + myClass, iconSize: new L.Point(rad, rad)  });
+            },
+            });*/
+
             dataPointMarkers.addLayer(dataPointsLayer); 
+            facilityMarkers.addLayer(facilitiesPointsLayer); 
+            //initiativeMarkers.addLayer(initiativesPointsLayer); 
 
             map.addLayer(dataPointMarkers); //Add collections layer
+            //map.addLayer(facilityMarkers); //Add collections layer
+            //map.addLayer(initiativeMarkers); //Add collections layer
             map.addLayer(organizationsLayer); //Add organizations Layer
 
             //map.removeLayer(organizationsLayer);
@@ -349,7 +397,8 @@
 
             // Iterate through the keys in the relationship object.  Each key is an nid code
             // Disable for now
-            if(false) {
+            //if(false) {
+
             for (var key in relationship) {
 
                 if (key !== 'all') {
@@ -379,7 +428,8 @@
                 }
 
             }
-            }
+
+            //} //End if (FALSE)
 
             //var searchLayer = L.layerGroup().addTo(map);
             //... adding data in searchLayer ...
@@ -467,8 +517,43 @@
     // });
 
         $('.tools-container .toggleLayer').click(function() {
+            var elid = $(this).attr('id');
+            switch (elid) {
+                case 'show-dp':
+                    map.removeLayer(organizationsLayer);     
+                    map.removeLayer(facilityMarkers);     
+                    //map.removeLayer(initiativeMarkers);     
+                    map.addLayer(dataPointMarkers);  
+                    $(this).hide();
+                    $(this).parent().find('#show-orgs').show();
+                break;
+                case 'show-orgs':
+                    map.removeLayer(dataPointMarkers);     
+                    map.removeLayer(facilityMarkers);     
+                    //map.removeLayer(initiativeMarkers);     
+                    map.addLayer(organizationsLayer);   
+                    $(this).hide();
+                    $(this).parent().find('#show-fac').show();
+                break;
+                /*case 'show-init':
+                    map.removeLayer(organizationsLayer);     
+                    map.removeLayer(facilityMarkers);     
+                    map.removeLayer(dataPointMarkers);     
+                    map.addLayer(initiativeMarkers);   
+                    $(this).hide();
+                    $(this).parent().find('#show-fac').show();
+                break;*/
+                case 'show-fac':
+                    map.removeLayer(organizationsLayer);     
+                    map.removeLayer(dataPointMarkers);     
+                    //map.removeLayer(initiativeMarkers);     
+                    map.addLayer(facilityMarkers);   
+                    $(this).hide();
+                    $(this).parent().find('#show-dp').show();
+                break;
+            }
 
-            if($(this).hasClass('show-dp')) {
+            /*if($(this).hasClass('show-dp')) {
                 map.removeLayer(organizationsLayer);     
                 map.addLayer(dataPointMarkers);  
                 $(this).hide();
@@ -479,9 +564,14 @@
                 map.addLayer(organizationsLayer); 
                 $(this).hide();
                 $(this).parent().find('.show-dp').show();
-            }
+            }*/
 
                
+        });
+
+        //Add an icon to toggle the network connections
+        $('.tools-container #show-connections').click(function() {
+            $('.leaflet-control-layers-overlays').find('label').trigger('click');
         });
     });
 

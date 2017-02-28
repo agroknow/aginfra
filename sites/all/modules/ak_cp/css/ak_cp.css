@@ -99,6 +99,10 @@ ul{
 	display: none;
 }
 
+.leaflet-control-layers {
+  display: none;
+}
+
 /*
 Zoom slider
 */
