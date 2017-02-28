@@ -23,7 +23,7 @@ $params = drupal_get_query_parameters();
         <div class="banner">
           <div class="center-content">
               <!-- <p class="text-uppercase"><?php //print t('Find Open Data'); ?></p> -->
-              <h1 class="text-uppercase"><?php print t('Find Open Data'); ?></h1>
+              <h1 class="text-uppercase"><?php print t('Explore the Ecosystem of Agriculture and Food'); ?></h1>
               <div class="discovery-search">
               <?php print render($form); ?>
               </div>
@@ -84,8 +84,8 @@ $params = drupal_get_query_parameters();
 <?php } else { ?>
 <div class="text-center">
               <!-- <p class="text-uppercase"><?php //print t('Find Open Data'); ?></p> -->
-              <h1 class="text-uppercase"><?php print t('Find Open Data'); ?></h1>
-              <div class="discovery-search">
+              <h1 class="text-uppercase"><?php print t('Explore the Ecosystem of Agriculture and Food'); ?></h1>
+              <div class="discovery-search border">
               <?php print render($form); ?>
               </div>
 </div>

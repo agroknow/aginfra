@@ -30,8 +30,11 @@
   display: none;
 }
 
-.discovery-search .form-text,
+.discovery-search.border .form-text {
+  border: 1px solid #ccc;
+}
 
+.discovery-search .form-text,
 .form-submit{
   padding: 13px;
   border: none;
@@ -54,7 +57,7 @@
 
 .discovery-search .form-submit{
   width: 100px;
-  margin-left: -99px;
+  margin-left: -105px;
 }
 
 .owl-stage .owl-item {
