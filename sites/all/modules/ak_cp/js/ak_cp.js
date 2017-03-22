@@ -50,6 +50,7 @@
             map = L.map('map', { 
                 zoomControl: false,
                 zoomsliderControl: false,
+                minZoom: 2
             });
             //.setView([44.715514, -112.148438], 4);
 
@@ -526,6 +527,7 @@
                     map.addLayer(dataPointMarkers);  
                     $(this).hide();
                     $(this).parent().find('#show-orgs').show();
+                    $(this).parent().find('#showing').text('Showing data points');
                 break;
                 case 'show-orgs':
                     map.removeLayer(dataPointMarkers);     
@@ -534,6 +536,7 @@
                     map.addLayer(organizationsLayer);   
                     $(this).hide();
                     $(this).parent().find('#show-fac').show();
+                    $(this).parent().find('#showing').text('Showing initiatives');
                 break;
                 /*case 'show-init':
                     map.removeLayer(organizationsLayer);     
@@ -550,6 +553,7 @@
                     map.addLayer(facilityMarkers);   
                     $(this).hide();
                     $(this).parent().find('#show-dp').show();
+                    $(this).parent().find('#showing').text('Showing facilities');
                 break;
             }
 

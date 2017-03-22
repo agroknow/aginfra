@@ -151,7 +151,7 @@ if($style == 'style4') {
           <div class="tools-container">
           <!-- ctools-modal-openharvest-modal-style -->
               <a id="add-resource" class="ctools-use-modal add-resource ctools-modal-openharvest-modal-style-fixed" href="modal_forms/nojs/webform/10171"><i class="fa fa-plus-circle" aria-hidden="true"></i></a>
-              <a id="discover" class="discover" href="<?php echo url('discover') ?>"><i class="fa fa-search" aria-hidden="true"></i></a>
+              <a id="discover" class="discover" target="_blank" title="Discover" href="<?php echo url('discover') ?>"><i class="fa fa-search" aria-hidden="true"></i></a>
               <a id="show-dp" class="show-dp toggleLayer" href="#" style="display:none"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
               <a id="show-orgs" class="show-orgs toggleLayer" href="#"><i class="fa fa-building" aria-hidden="true"></i></a>
           </div>
