@@ -536,7 +536,7 @@
                     map.addLayer(organizationsLayer);   
                     $(this).hide();
                     $(this).parent().find('#show-fac').show();
-                    $(this).parent().find('#showing').text('Showing initiatives');
+                    $(this).parent().find('#showing').text('Showing organizations / initiatives');
                 break;
                 /*case 'show-init':
                     map.removeLayer(organizationsLayer);     

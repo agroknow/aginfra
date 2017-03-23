@@ -22,7 +22,7 @@
 </head>
 
 <body id="page" data-spy="scroll" data-target=".navbar-nav" data-offset="80" class="appear-animate <?php print $classes;?>" <?php print $attributes;?>>
-	<?php if(drupal_is_front_page()) { ?>
+	<?php if(FALSE) { ?>
 	<div class="ip-header">
     	<div class="ip-logo">
         	<img class="preloaderLogo center-block" src="<?php print $base_url.'/'.path_to_theme();?>/logo.png" alt="preloader">
