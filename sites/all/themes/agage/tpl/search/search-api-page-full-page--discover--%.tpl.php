@@ -47,25 +47,25 @@ $params = drupal_get_query_parameters();
         <?php print theme('image_style', array('style_name' => '400x300crop', 'path' => 'public://content_types/organization.png')); ?>
         <?php $path = url('discover', array('query' => array('f' => array('type:organization')))); ?>
         <a href="<?php echo $path ?>" target="_blank" class="cbp-l-grid-blog-title">Organizations</a>
-        <?php print views_embed_view('search_page_blocks_content', 'block_3', 'organization'); ?>
+        <?php print views_embed_view('search_page_blocks_content', 'block_3', 'organization', 'Organizations'); ?>
       </div>
       <div class="col-lg-3 pad10">
         <?php print theme('image_style', array('style_name' => '400x300crop', 'path' => 'public://content_types/initiative.jpg')); ?>
         <?php $path = url('discover', array('query' => array('f' => array('type:initiative')))); ?>
         <a href="<?php echo $path ?>" target="_blank" class="cbp-l-grid-blog-title">Initiatives</a>
-        <?php print views_embed_view('search_page_blocks_content', 'block_3', 'initiative'); ?>
+        <?php print views_embed_view('search_page_blocks_content', 'block_3', 'initiative', 'Initiatives'); ?>
       </div>
       <div class="col-lg-3 pad10">
         <?php print theme('image_style', array('style_name' => '400x300crop', 'path' => 'public://content_types/data_point.jpg')); ?>
         <?php $path = url('discover', array('query' => array('f' => array('type:data_point')))); ?>
         <a href="<?php echo $path ?>" target="_blank" class="cbp-l-grid-blog-title">Data points</a>
-        <?php print views_embed_view('search_page_blocks_content', 'block_3', 'data_point'); ?>
+        <?php print views_embed_view('search_page_blocks_content', 'block_3', 'data_point', 'Data points'); ?>
       </div>
       <div class="col-lg-3 pad10">
         <?php print theme('image_style', array('style_name' => '400x300crop', 'path' => 'public://content_types/facility.jpg')); ?>
         <?php $path = url('discover', array('query' => array('f' => array('type:facility')))); ?>
         <a href="<?php echo $path ?>" target="_blank" class="cbp-l-grid-blog-title">Facilities</a>
-        <?php print views_embed_view('search_page_blocks_content', 'block_3', 'facility'); ?>
+        <?php print views_embed_view('search_page_blocks_content', 'block_3', 'facility', 'Facilities'); ?>
       </div>
     </div>    
     </div>    
