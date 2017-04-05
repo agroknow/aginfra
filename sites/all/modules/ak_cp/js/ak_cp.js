@@ -307,7 +307,7 @@
                 },
                 onEachRecord: function (layer, record) {
                     //layer.bindPopup($(L.HTMLUtils.buildTable(record)).wrap('<div/>').parent().html());
-                    layer.bindPopup(record.title + '<br />');
+                    layer.bindPopup(record.title + '<br /><a href="/node/' + record.nid + '" target="_blank">More info</a>');
                     //layer.on('click', function () {
                         // $info.empty();
                         // $info.append($(L.HTMLUtils.buildTable(record)).wrap('<div/>').parent().html());
