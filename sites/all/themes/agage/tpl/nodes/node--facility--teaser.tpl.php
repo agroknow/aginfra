@@ -123,7 +123,7 @@ field_external_id
     <?php print render($title_prefix); ?>
 
     <?php if (!$page): ?>
-      <h4<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h4>
+      <h4<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>?source=discover"><?php print $title; ?></a></h4>
     <?php endif; ?>
     <?php print render($title_suffix); ?>
 
@@ -131,7 +131,11 @@ field_external_id
       <?php 
             if(isset($content['field_address'])) { print '<div class="address-wrap"><i class="pull-left fa fa-map-marker" aria-hidden="true"></i>' . render($content['field_address']) . '</div>';} 
       ?>
-      <div class="read-more"><?php print render($content['links']); ?></div>
+      <div class="read-more">
+        <span class="node-readmore">
+         <?php print l('Read more', 'node/' . $nid, array('query' => array('source' => 'discover'))) ?>
+        </span>
+      </div>
     </div>
   </div>
 

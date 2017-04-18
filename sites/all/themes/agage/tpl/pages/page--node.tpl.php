@@ -24,6 +24,7 @@ if($blog == 'minimal'){
 ?>
 
 <?php if(arg(0)=='node'){ ?>
+<?php $params = drupal_get_query_parameters() ?>
 <div id="pageWrapper" class="clearfix">
       
 	<div class="contentWrapper">
@@ -34,6 +35,12 @@ if($blog == 'minimal'){
                   <?php print render($title_prefix); ?>
                   <?php if (!empty($title)): ?>
                     <h1 class="page-header"><?php print $title; ?></h1>
+                    <?php if(isset($params['source']) && $params['source'] == 'discover' ) { ?>
+                      <a href="#" onclick="window.history.back();" class="btn pull-right">
+                        <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+                        Back to results
+                      </a>
+                    <?php } ?>
                   <?php endif; ?>
                   <?php print render($title_suffix); ?>
                 </div>
